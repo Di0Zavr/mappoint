@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Избранное</title>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.12/semantic.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.12/semantic.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div style="text-align: center;">
+            <h1>Избранное</h1>
+        </div>
+    </div>
+
+    <div class="container">
+        {% for poi in favs %}
+        <div class="row">
+            <a href="#"> {{ poi.title }} </a>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>

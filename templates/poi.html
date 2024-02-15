@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Точки интереса</title>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.12/semantic.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.12/semantic.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div style="text-align: center;">
+            <h1>Точки интереса</h1>
+        </div>
+    </div>
+    <div class="container" style="padding-top: 10px;">
+        <table>
+            <thead>
+                <th>Title</th>
+                <th>Favourite</th>
+            </thead>
+            <tbody>
+                {% for fav in favs %}
+                <tr>
+                    <td><a href="#">{{ fav.title }}</a></td>
+                    <td><button form="{{ fav.title }}" formmethod="POST" type="submit"> Удалить из избранного </button></td>
+                    <td><form id="{{ fav.title }}">
+                        <input type="hidden" name="poi_id" value="{{ fav.id }}">
+                        <input type="hidden" name="operation" value="delete">
+                    </form></td>
+                </tr>
+                {% endfor %}
+                {% for not_fav in not_favs %}
+                <tr>
+                    <td><a href="#">{{ not_fav.title }}</a></td>
+                    <td><button form="{{ not_fav.title }}" formmethod="POST" type="submit"> Добавить в избранное </button></td>
+                    <td><form id="{{ not_fav.title }}">
+                        <input type="hidden" name="poi_id" value="{{ not_fav.id }}">
+                        <input type="hidden" name="operation" value="insert">
+                    </form></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
